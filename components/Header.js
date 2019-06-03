@@ -6,15 +6,12 @@ import NProgress from "nprogress";
 
 Router.onRouteChangeStart = () => {
   NProgress.start();
-  console.log("onRouteChangeStart Triggered");
 };
 Router.onRouteChangeComplete = () => {
   NProgress.done(true);
-  console.log("onRouteChangeComplete Triggered");
 };
 Router.onRouteChangeError = () => {
   NProgress.done(true);
-  console.log("onRouteChangeError Triggered");
 };
 
 const Logo = styled.h1`
