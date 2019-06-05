@@ -3,6 +3,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
 import styled from "styled-components";
+import Item from "./Item";
 
 const ALL_ITEMS_QUERY = gql`
   query ALL_ITEMS_QUERY {
@@ -22,7 +23,11 @@ const Center = styled.div`
 `;
 
 const ItemsList = styled.div`
-  display: "grid";
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 60px;
+  max-width: ${props => props.theme.maxWidth};
+  margin: 0 auto;
 `;
 
 class Items extends Component {
@@ -39,11 +44,13 @@ class Items extends Component {
             if (error) {
               return <p> Error: {error.message}</p>;
             }
-            {
-              return data.items.map(item => {
-                return <h1>{item.title}</h1>;
-              });
-            }
+            return (
+              <ItemsList>
+                {data.items.map(item => {
+                  return <Item item={item} key={item.id} />;
+                })}
+              </ItemsList>
+            );
           }}
         </Query>
       </Center>
