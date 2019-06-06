@@ -37,7 +37,6 @@ class Items extends Component {
         <p>Items </p>
         <Query query={ALL_ITEMS_QUERY}>
           {({ data, error, loading }) => {
-            console.log(data);
             if (loading) {
               return <p> Loading...</p>;
             }
@@ -46,7 +45,7 @@ class Items extends Component {
             }
             return (
               <ItemsList>
-                {data.items.map(item => {
+                {data.items.reverse().map(item => {
                   return <Item item={item} key={item.id} />;
                 })}
               </ItemsList>
