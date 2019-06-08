@@ -92,21 +92,7 @@ class CreateItem extends Component {
                   onChange={this.handleChange}
                 />
               </label>
-              <label htmlFor="file">
-                Image
-                <input
-                  type="file"
-                  id="file"
-                  name="file"
-                  placeholder="Upload an Image"
-                  required
-                  // value={this.state.image}
-                  onChange={this.uploadFile}
-                />
-                {this.state.image && (
-                  <img width="200" src={this.state.image} alt="Upload Preview" />
-                )}
-              </label>
+
               <label htmlFor="price">
                 Price
                 <input
@@ -130,6 +116,21 @@ class CreateItem extends Component {
                   value={this.state.description}
                   onChange={this.handleChange}
                 />
+              </label>
+              <label htmlFor="file">
+                Image
+                <input
+                  type="file"
+                  id="file"
+                  name="file"
+                  placeholder="Upload an Image"
+                  required
+                  // value={this.state.image}
+                  onChange={this.uploadFile}
+                />
+                {this.state.image && (
+                  <img width="200" src={this.state.image} alt="Upload Preview" />
+                )}
               </label>
               <button type="submit">Submit</button>
             </fieldset>
