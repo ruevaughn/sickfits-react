@@ -13,4 +13,14 @@ const ALL_ITEMS_QUERY = gql`
   }
 `;
 
-export { ALL_ITEMS_QUERY };
+const ITEM_COUNT_QUERY = gql`
+  query ITEM_COUNT_QUERY {
+    itemsConnection {
+      aggregate {
+        count
+      }
+    }
+  }
+`;
+
+export { ALL_ITEMS_QUERY, ITEM_COUNT_QUERY };
