@@ -1,30 +1,9 @@
 import React, { Component } from "react";
 import { Mutation } from "react-apollo";
-import gql from "graphql-tag";
-import Form from "./styles/Form";
-import formatMoney from "../lib/formatMoney";
-import Error from "./ErrorMessage";
 import Router from "next/router";
-
-const CREATE_ITEM_MUTATION = gql`
-  mutation CREATE_ITEM_MUTATION(
-    $title: String!
-    $description: String!
-    $price: Int!
-    $image: String
-    $largeImage: String
-  ) {
-    createItem(
-      title: $title
-      description: $description
-      price: $price
-      image: $image
-      largeImage: $largeImage
-    ) {
-      id
-    }
-  }
-`;
+import Form from "./styles/Form";
+import Error from "./ErrorMessage";
+import { CREATE_ITEM_MUTATION } from "../src/graphql/mutations";
 
 class CreateItem extends Component {
   state = {
@@ -142,4 +121,3 @@ class CreateItem extends Component {
 }
 
 export default CreateItem;
-export { CREATE_ITEM_MUTATION };
