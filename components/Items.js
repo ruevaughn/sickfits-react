@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import styled from "styled-components";
+import { perPage } from "../config";
 
 // Components
 import Item from "./Item";
@@ -24,11 +25,12 @@ const ItemsList = styled.div`
 
 class Items extends Component {
   render() {
+    const skip = this.props.page * perPage - perPage;
     return (
       <Center>
         <p>Items </p>
         <Pagination page={this.props.page} />
-        <Query query={ALL_ITEMS_QUERY}>
+        <Query query={ALL_ITEMS_QUERY} variables={{ skip }} fetchPolicy="network-only">
           {({ data, error, loading }) => {
             if (loading) {
               return <p> Loading...</p>;
