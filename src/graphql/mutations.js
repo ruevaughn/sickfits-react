@@ -20,4 +20,14 @@ const CREATE_ITEM_MUTATION = gql`
   }
 `;
 
-export { CREATE_ITEM_MUTATION };
+const SIGN_UP_MUTATION = gql`
+  mutation SIGN_UP_MUTATION($email: String!, $password: String!, $name: String!) {
+    signUp(email: $email, password: $password, name: $name) {
+      id
+      email
+      name
+    }
+  }
+`;
+
+export { CREATE_ITEM_MUTATION, SIGN_UP_MUTATION };
