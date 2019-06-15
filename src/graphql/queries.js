@@ -24,4 +24,15 @@ const ITEM_COUNT_QUERY = gql`
   }
 `;
 
-export { ALL_ITEMS_QUERY, ITEM_COUNT_QUERY };
+const CURRENT_USER_QUERY = gql`
+  query {
+    me {
+      id
+      name
+      email
+      permissions
+    }
+  }
+`;
+
+export { ALL_ITEMS_QUERY, ITEM_COUNT_QUERY, CURRENT_USER_QUERY };
