@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Mutation } from "react-apollo";
 import { SIGN_IN_MUTATION } from "../src/graphql/mutations";
+import { CURRENT_USER_QUERY } from "../src/graphql/queries";
 import Form from "./styles/Form";
 import Error from "./ErrorMessage";
 
@@ -16,7 +17,11 @@ class Signin extends Component {
   };
   render() {
     return (
-      <Mutation mutation={SIGN_IN_MUTATION} variables={{ ...this.state }}>
+      <Mutation
+        mutation={SIGN_IN_MUTATION}
+        variables={{ ...this.state }}
+        refetchQueries={[{ query: CURRENT_USER_QUERY }]}
+      >
         {(signIn, { loading, error }) => {
           if (loading) return <p>Loading...</p>;
           return (

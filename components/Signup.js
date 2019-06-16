@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Mutation } from "react-apollo";
 import { SIGN_UP_MUTATION } from "../src/graphql/mutations";
+import { CURRENT_USER_QUERY } from "../src/graphql/queries";
 import Form from "./styles/Form";
 import Error from "./ErrorMessage";
 
@@ -20,7 +21,11 @@ class Signup extends Component {
     // Form needs to hit Mutation
     // User needs to be logged in via JWT and Cookie
     return (
-      <Mutation mutation={SIGN_UP_MUTATION} variables={{ ...this.state }}>
+      <Mutation
+        mutation={SIGN_UP_MUTATION}
+        variables={{ ...this.state }}
+        refetchQueries={[{ query: CURRENT_USER_QUERY }]}
+      >
         {(signUp, { loading, error }) => {
           if (loading) return <p>Loading...</p>;
           return (
@@ -28,28 +33,16 @@ class Signup extends Component {
               onSubmit={async e => {
                 e.preventDefault();
                 const res = await signUp();
-                this.setState = {
+                this.setState({
                   name: "",
                   email: "",
                   password: ""
-                };
+                });
               }}
             >
               <Error error={error} />
               <fieldset disabled={loading} aria-busy={loading}>
                 <h2>Sign up for an Account</h2>
-                <label htmlFor="name">
-                  Name
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Name"
-                    required
-                    onChange={this.handleChange}
-                    value={this.state.name}
-                  />
-                </label>
                 <label htmlFor="email">
                   Email
                   <input
@@ -60,6 +53,18 @@ class Signup extends Component {
                     required
                     onChange={this.handleChange}
                     value={this.state.email}
+                  />
+                </label>
+                <label htmlFor="name">
+                  Name
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Name"
+                    required
+                    onChange={this.handleChange}
+                    value={this.state.name}
                   />
                 </label>
                 <label htmlFor="password">
