@@ -40,4 +40,12 @@ const SIGN_IN_MUTATION = gql`
   }
 `;
 
-export { CREATE_ITEM_MUTATION, SIGN_UP_MUTATION, SIGN_IN_MUTATION };
+const SIGN_OUT_MUTATION = gql`
+  mutation SIGN_OUT_MUTATION {
+    signOut {
+      message
+    }
+  }
+`;
+
+export { CREATE_ITEM_MUTATION, SIGN_UP_MUTATION, SIGN_IN_MUTATION, SIGN_OUT_MUTATION };
