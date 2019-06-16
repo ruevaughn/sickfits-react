@@ -48,4 +48,37 @@ const SIGN_OUT_MUTATION = gql`
   }
 `;
 
-export { CREATE_ITEM_MUTATION, SIGN_UP_MUTATION, SIGN_IN_MUTATION, SIGN_OUT_MUTATION };
+const REQUEST_RESET_MUTATION = gql`
+  mutation REQUEST_RESET_MUTATION($email: String!) {
+    requestReset(email: $email) {
+      message
+    }
+  }
+`;
+
+const RESET_PASSWORD_MUTATION = gql`
+  mutation RESET_PASSWORD_MUTATION(
+    $resetToken: String!
+    $password: String!
+    $confirmPassword: String!
+  ) {
+    resetPassword(
+      resetToken: $resetToken
+      password: $password
+      confirmPassword: $confirmPassword
+    ) {
+      id
+      email
+      name
+    }
+  }
+`;
+
+export {
+  CREATE_ITEM_MUTATION,
+  SIGN_UP_MUTATION,
+  SIGN_IN_MUTATION,
+  SIGN_OUT_MUTATION,
+  REQUEST_RESET_MUTATION,
+  RESET_PASSWORD_MUTATION
+};

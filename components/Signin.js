@@ -28,6 +28,10 @@ class Signin extends Component {
             <Form
               onSubmit={async e => {
                 e.preventDefault();
+                this.setState({
+                  email: "",
+                  password: ""
+                });
                 const res = await signIn();
               }}
             >
