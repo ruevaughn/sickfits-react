@@ -35,4 +35,13 @@ const CURRENT_USER_QUERY = gql`
   }
 `;
 
-export { ALL_ITEMS_QUERY, ITEM_COUNT_QUERY, CURRENT_USER_QUERY };
+const ALL_USERS_QUERY = gql`
+  query users {
+    users {
+      name
+      permissions
+    }
+  }
+`;
+
+export { ALL_ITEMS_QUERY, ITEM_COUNT_QUERY, CURRENT_USER_QUERY, ALL_USERS_QUERY };
