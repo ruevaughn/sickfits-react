@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Mutation } from "react-apollo";
-import { SIGN_IN_MUTATION } from "../src/graphql/mutations";
-import { CURRENT_USER_QUERY } from "../src/graphql/queries";
+import { SIGN_IN_MUTATION } from "../graphql/mutations";
+import { CURRENT_USER_QUERY } from "../graphql/queries";
 import Form from "./styles/Form";
 import Error from "./ErrorMessage";
 

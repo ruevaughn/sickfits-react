@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
-import { CURRENT_USER_QUERY } from "../src/graphql/queries";
+import { CURRENT_USER_QUERY } from "../graphql/queries";
 import Signin from "./Signin";
 
 const PleaseSignIn = props => (

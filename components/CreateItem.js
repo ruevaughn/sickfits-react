@@ -3,7 +3,7 @@ import { Mutation } from "react-apollo";
 import Router from "next/router";
 import Form from "./styles/Form";
 import Error from "./ErrorMessage";
-import { CREATE_ITEM_MUTATION } from "../src/graphql/mutations";
+import { CREATE_ITEM_MUTATION } from "../graphql/mutations";
 
 class CreateItem extends Component {
   state = {
