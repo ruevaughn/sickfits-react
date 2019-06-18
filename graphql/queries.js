@@ -38,6 +38,8 @@ const CURRENT_USER_QUERY = gql`
 const ALL_USERS_QUERY = gql`
   query users {
     users {
+      id
+      email
       name
       permissions
     }
