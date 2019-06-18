@@ -3,7 +3,7 @@ import { Query } from "react-apollo";
 import Head from "next/head";
 import Link from "next/link";
 import PaginationStyles from "./styles/PaginationStyles";
-import { ITEM_COUNT_QUERY } from "../src/graphql/queries";
+import { ITEM_COUNT_QUERY } from "../graphql/queries";
 import { perPage } from "../config";
 
 const Pagination = props => (

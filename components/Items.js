@@ -9,7 +9,7 @@ import Item from "./Item";
 import Pagination from "./Pagination";
 
 // Graphql Queries
-import { ALL_ITEMS_QUERY } from "../src/graphql/queries";
+import { ALL_ITEMS_QUERY } from "../graphql/queries";
 
 const Center = styled.div`
   text-align: center;

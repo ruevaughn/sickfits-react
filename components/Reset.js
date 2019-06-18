@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Mutation } from "react-apollo";
 import PropTypes from "prop-types";
-import { RESET_PASSWORD_MUTATION } from "../src/graphql/mutations";
-import { CURRENT_USER_QUERY } from "../src/graphql/queries";
+import { RESET_PASSWORD_MUTATION } from "../graphql/mutations";
+import { CURRENT_USER_QUERY } from "../graphql/queries";
 import Form from "./styles/Form";
 import Error from "./ErrorMessage";
 
