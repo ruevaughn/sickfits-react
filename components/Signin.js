@@ -23,6 +23,7 @@ class Signin extends Component {
         refetchQueries={[{ query: CURRENT_USER_QUERY }]}
       >
         {(signIn, { loading, error }) => {
+          if (error) return <Error error={error} />;
           if (loading) return <p>Loading...</p>;
           return (
             <Form

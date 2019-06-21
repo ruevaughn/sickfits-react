@@ -75,8 +75,8 @@ const RESET_PASSWORD_MUTATION = gql`
 `;
 
 const UPDATE_PERMISSIONS_MUTATION = gql`
-  mutation updatedPermissions($permissions: [Permission], $userId: ID!) {
-    updatedPermissions(permissions: $permissions, userId: $userId) {
+  mutation updatePermissions($permissions: [Permission], $userId: ID!) {
+    updatePermissions(permissions: $permissions, userId: $userId) {
       id
       permissions
       name
