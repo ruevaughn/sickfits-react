@@ -16,7 +16,9 @@ class DeleteItem extends Component {
   deleteItem = async deleteItemMutation => {
     if (confirm("Are you sure you want to delete this item?")) {
       const { id } = this.props;
-      await deleteItemMutation();
+      await deleteItemMutation().catch(err => {
+        alert(err.message);
+      });
     }
   };
 
