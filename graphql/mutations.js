@@ -91,6 +91,15 @@ const TOGGLE_CART_MUTATION = gql`
   }
 `;
 
+const ADD_TO_CART = gql`
+  mutation addToCart($id: ID!) {
+    addToCart(id: $id) {
+      id
+      quantity
+    }
+  }
+`;
+
 export {
   CREATE_ITEM_MUTATION,
   SIGN_UP_MUTATION,
@@ -99,5 +108,6 @@ export {
   REQUEST_RESET_MUTATION,
   RESET_PASSWORD_MUTATION,
   UPDATE_PERMISSIONS_MUTATION,
-  TOGGLE_CART_MUTATION
+  TOGGLE_CART_MUTATION,
+  ADD_TO_CART
 };

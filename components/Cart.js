@@ -10,24 +10,22 @@ const Cart = props => (
   <Mutation mutation={TOGGLE_CART_MUTATION}>
     {toggleCart => (
       <Query query={LOCAL_STATE_QUERY}>
-        {({ data }) =>
-          console.log(data) || (
-            <CartStyle open={data.cartOpen}>
-              <header>
-                <CloseButton onClick={toggleCart} title="close">
-                  &times;
-                </CloseButton>
-                <Supreme>Your Cart</Supreme>
-                <p>You have __ Items in your cart.</p>
-              </header>
+        {({ data }) => (
+          <CartStyle open={data.cartOpen}>
+            <header>
+              <CloseButton onClick={toggleCart} title="close">
+                &times;
+              </CloseButton>
+              <Supreme>Your Cart</Supreme>
+              <p>You have __ Items in your cart.</p>
+            </header>
 
-              <footer>
-                <p>$10.10</p>
-                <SickButton>Checkout</SickButton>
-              </footer>
-            </CartStyle>
-          )
-        }
+            <footer>
+              <p>$10.10</p>
+              <SickButton>Checkout</SickButton>
+            </footer>
+          </CartStyle>
+        )}
       </Query>
     )}
   </Mutation>
