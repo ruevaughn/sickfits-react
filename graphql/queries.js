@@ -46,4 +46,16 @@ const ALL_USERS_QUERY = gql`
   }
 `;
 
-export { ALL_ITEMS_QUERY, ITEM_COUNT_QUERY, CURRENT_USER_QUERY, ALL_USERS_QUERY };
+const LOCAL_STATE_QUERY = gql`
+  query {
+    cartOpen @client
+  }
+`;
+
+export {
+  ALL_ITEMS_QUERY,
+  ITEM_COUNT_QUERY,
+  CURRENT_USER_QUERY,
+  ALL_USERS_QUERY,
+  LOCAL_STATE_QUERY
+};
