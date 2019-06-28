@@ -63,10 +63,25 @@ const LOCAL_STATE_QUERY = gql`
   }
 `;
 
+const SEARCH_ITEMS_QUERY = gql`
+  query SEARCH_ITEMS_QUERY($searchTerm: String!) {
+    items(
+      where: {
+        OR: [{ title_contains: $searchTerm }, { description_contains: $searchTerm }]
+      }
+    ) {
+      id
+      title
+      image
+    }
+  }
+`;
+
 export {
   ALL_ITEMS_QUERY,
   ITEM_COUNT_QUERY,
   CURRENT_USER_QUERY,
   ALL_USERS_QUERY,
-  LOCAL_STATE_QUERY
+  LOCAL_STATE_QUERY,
+  SEARCH_ITEMS_QUERY
 };
