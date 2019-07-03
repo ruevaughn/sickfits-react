@@ -10,6 +10,7 @@ import CartItem from "./CartItem";
 import calcTotalPrice from "../lib/calcTotalPrice";
 import formatMoney from "../lib/formatMoney";
 import { adopt } from "react-adopt";
+import TakeMyMoney from "./TakeMyMoney";
 
 const Composed = adopt({
   user: ({ render }) => <User>{render}</User>,
@@ -42,7 +43,9 @@ const Cart = props => (
           </ul>
           <footer>
             <p>{formatMoney(calcTotalPrice(me.cart))}</p>
-            <SickButton>Checkout</SickButton>
+            <TakeMyMoney>
+              <SickButton>Checkout</SickButton>
+            </TakeMyMoney>
           </footer>
         </CartStyle>
       );
